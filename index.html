@@ -12,37 +12,42 @@
 <meta property="og:url" content="https://wnttakg.github.io/etch-promises/">
 <style>
 :root {
-	--paper: #f1eee6;
-	--shade: #e3dfd3;
-	--ink: #111;
-	--soft: #3b3a36;
-	--red: #e0201b;
-	--red-text: #b30f0b;
-	--body: Georgia, 'Times New Roman', serif;
-	--data: 'Helvetica Neue', Arial, sans-serif;
-	--display: 'Arial Narrow', 'Helvetica Neue', sans-serif;
+	--bg: #fbfcfd;
+	--card: #ffffff;
+	--line: #d9e0e8;
+	--text: #1e293b;
+	--muted: #475569;
+	--accent: #0f6e68;
+	--accent-bg: #eef6f5;
+	--sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 * { box-sizing: border-box; }
-html { background: var(--paper); color: var(--ink); }
-body { margin: 0 auto; max-width: 44rem; padding: 2.5rem 1.25rem 4rem; font: 1.125rem/1.6 var(--body); }
-a { color: var(--ink); text-decoration-color: var(--red); text-underline-offset: 0.15em; }
-a:hover { color: var(--red-text); }
-header { border-top: 0.5rem solid var(--red); padding-top: 1.25rem; }
-.kicker { font: 600 0.8125rem/1 var(--data); letter-spacing: 0.08em; text-transform: uppercase; color: var(--red-text); margin: 0 0 0.75rem; }
-h1 { font: 700 clamp(2.25rem, 1.6rem + 3vw, 3.5rem)/1 var(--display); text-transform: uppercase; letter-spacing: -0.01em; margin: 0 0 1rem; }
-.lede { font-size: 1.25rem; margin: 0 0 1rem; }
-h2 { font: 700 1.75rem/1.1 var(--display); text-transform: uppercase; margin: 3rem 0 0.25rem; border-bottom: 2px solid var(--ink); padding-bottom: 0.35rem; }
-ol { list-style: none; margin: 0; padding: 0; }
-li.promise { border-bottom: 1px solid var(--shade); padding: 1.25rem 0; }
-.status { display: inline-block; font: 700 0.875rem/1.3 var(--data); background: var(--ink); color: #fff; padding: 0.3rem 0.5rem; margin-bottom: 0.5rem; }
-h3 { font: 700 1.25rem/1.3 var(--body); margin: 0 0 0.35rem; }
+html { background: var(--bg); color: var(--text); scroll-behavior: smooth; }
+body { margin: 0 auto; max-width: 46rem; padding: 2rem 1.25rem 3rem; font: 1rem/1.6 var(--sans); }
+a { color: var(--accent); text-underline-offset: 0.15em; }
+a:hover { color: var(--text); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.mono { font-family: var(--mono); font-size: 0.92em; }
+header { padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
+.kicker { font-size: 0.875rem; color: var(--muted); margin: 0 0 0.35rem; }
+h1 { font-size: 1.75rem; line-height: 1.25; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.01em; }
+.lede { margin: 0; }
+nav.toc { margin: 1.25rem 0 0; padding: 0.85rem 1rem; background: var(--card); border: 1px solid var(--line); border-radius: 8px; font-size: 0.9375rem; }
+nav.toc p { margin: 0 0 0.35rem; font-weight: 600; font-size: 0.875rem; color: var(--muted); }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; }
+h2 { font-size: 1.125rem; font-weight: 650; margin: 2.25rem 0 0.75rem; }
+main > ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+li.promise { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 1.1rem 1.25rem 1rem; scroll-margin-top: 1rem; }
+.status { display: inline-block; font-size: 0.8125rem; line-height: 1.4; font-weight: 600; color: var(--accent); background: var(--accent-bg); border: 1px solid #cfe3e1; border-radius: 4px; padding: 0.15rem 0.5rem; margin-bottom: 0.5rem; }
+h3 { font-size: 1.125rem; line-height: 1.35; font-weight: 650; margin: 0 0 0.25rem; }
 .promise p { margin: 0 0 0.5rem; }
-.label { font: 700 0.8125rem/1.4 var(--data); letter-spacing: 0.06em; text-transform: uppercase; color: var(--red-text); margin: 0.85rem 0 0.25rem !important; }
-.promise ul { margin: 0 0 0.5rem; padding-left: 1.1rem; }
-.promise ul li { margin: 0 0 0.4rem; }
-.src { font: 0.875rem/1.5 var(--data); color: var(--soft); }
-.checked { font: 0.875rem/1.4 var(--data); color: var(--soft); margin: 0.75rem 0 0 !important; }
-footer { margin-top: 3rem; border-top: 2px solid var(--ink); padding-top: 1rem; font: 0.875rem/1.6 var(--data); color: var(--soft); }
+.label { font-size: 0.8125rem; font-weight: 600; color: var(--accent); margin: 0.9rem 0 0.25rem !important; }
+.promise ul { margin: 0 0 0.4rem; padding-left: 1.1rem; }
+.promise ul li { margin: 0 0 0.35rem; }
+.src { font-size: 0.875rem; color: var(--muted); }
+.checked { font-size: 0.8125rem; color: var(--muted); margin: 0.85rem 0 0 !important; padding-top: 0.6rem; border-top: 1px solid var(--line); }
+footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.875rem; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -50,13 +55,26 @@ footer { margin-top: 3rem; border-top: 2px solid var(--ink); padding-top: 1rem; 
 <p class="kicker">Etch pre-sale promise tracker</p>
 <h1>The Etch pre-sale and Etch's pages today</h1>
 <p class="lede">In September 2024, Digital Gravy pre-sold Etch for WordPress in three tiers, at one-off prices of $499, $799 and $1,299 (monthly instalment options were also offered), under a "<a href="https://web.archive.org/web/20240905025607/https://etchwp.com/pricing/?group=1">strict no-refunds policy</a>". This page sets statements from that pre-sale beside what Etch's own pages say now.</p>
+<nav class="toc" aria-label="Items on this page">
+<p>On this page</p>
+<ol>
+<li><a href="#core-wordpress-blocks">Core WordPress blocks</a></li>
+<li><a href="#woocommerce-integration">WooCommerce integration</a></li>
+<li><a href="#a-marketplace-for-add-ons">A marketplace for add-ons</a></li>
+<li><a href="#replacing-other-plugins">Replacing other plugins</a></li>
+<li><a href="#seo-plugins">SEO plugins</a></li>
+<li><a href="#custom-field-plugins">Custom field plugins</a></li>
+<li><a href="#version-control">Version control</a></li>
+<li><a href="#production-stable-v1">Production-stable V1</a></li>
+</ol>
+</nav>
 </header>
 
 <main>
 <h2>Pre-sale statements</h2>
 <ol>
 
-<li class="promise">
+<li class="promise" id="core-wordpress-blocks">
 <span class="status">Docs: "custom Gutenberg blocks (not core blocks)"</span>
 <h3>Core WordPress blocks</h3>
 <p class="label">Pre-sale</p>
@@ -64,36 +82,36 @@ footer { margin-top: 3rem; border-top: 2px solid var(--ink); padding-top: 1rem; 
 <li>"Etch mirrors your exact layout &amp; content to Gutenberg in real-time, as you build, using Core blocks."</li>
 <li>"Etch doesn't trap your content in a proprietary third party environment, it liberates it into the Core of Wordpress."</li>
 </ul>
-<p class="src">Etch pre-sale presentation slide, September 2024. <a href="https://weneedtotalkaboutkevin.com/etch-doesnt-trap-your-content/">Slide shown here</a>.</p>
+<p class="src">Etch pre-sale presentation slide, <span class="mono">September 2024</span>. <a href="https://weneedtotalkaboutkevin.com/etch-doesnt-trap-your-content/">Slide shown here</a>.</p>
 <p class="label">Etch's pages now</p>
 <ul>
 <li>"Etch writes everything you build to core WordPress blocks (Auto Block Authoring) for full data liberation" <span class="src">(<a href="https://etchwp.com/pricing/">etchwp.com pricing FAQ</a>)</span></li>
 <li>"Etch automatically authors everything you build to core/native Gutenberg blocks in the WordPress block editor" <span class="src">(<a href="https://etchwp.com/features/">etchwp.com features page</a>)</span></li>
 <li>"everything you build is authored to custom Gutenberg blocks and stored in core WordPress" <span class="src">(<a href="https://etchwp.com/why/">etchwp.com Why Etch? page</a>)</span></li>
 <li>"Etch now authors everything you build to custom Gutenberg blocks (not core blocks)." <span class="src">(<a href="https://docs.etchwp.com/gutenberg/block-authoring">Etch docs, Auto Block Authoring</a>)</span></li>
-<li>"We tried to make core blocks behave. They wouldn't." <span class="src">(<a href="https://etchwp.com/blog/auto-block-authoring-core-vs-custom/">Etch blog, 12 November 2025</a>)</span></li>
+<li>"We tried to make core blocks behave. They wouldn't." <span class="src">(<a href="https://etchwp.com/blog/auto-block-authoring-core-vs-custom/">Etch blog, <span class="mono">12 November 2025</span></a>)</span></li>
 </ul>
-<p class="checked">Checked: 6 November 2026</p>
+<p class="checked">Checked: <span class="mono">6 November 2026</span></p>
 </li>
 
-<li class="promise">
+<li class="promise" id="woocommerce-integration">
 <span class="status">Listed as not currently available</span>
 <h3>WooCommerce integration</h3>
 <p class="label">Pre-sale</p>
 <ul>
 <li>"Woocommerce Integration", listed as included in the Investor ($799) and Partner ($1,299) tiers and as not included in the Early-Bird ($499) tier.</li>
 </ul>
-<p class="src"><a href="https://web.archive.org/web/20240905025607/https://etchwp.com/pricing/?group=1">Etch pre-sale pricing page, archived 5 September 2024</a>.</p>
+<p class="src"><a href="https://web.archive.org/web/20240905025607/https://etchwp.com/pricing/?group=1">Etch pre-sale pricing page, archived <span class="mono">5 September 2024</span></a>.</p>
 <p class="label">Etch's pages now</p>
 <ul>
 <li>"WooCommerce integration*" marked as not included on the Freelancer ($99/yr) plan, and "WooCommerce Integration*" marked as included on the Agency ($199/yr) and Agency Elite ($299/yr) plans, with the footnote: "* These features are not currently available, but are planned for the near future. Do not expect these features to be available right away." <span class="src">(<a href="https://etchwp.com/pricing/">etchwp.com pricing page</a>)</span></li>
 <li>"The only features planned as add-ons or restricted from lower tiers are: Woocommerce elements and templates" <span class="src">(<a href="https://etchwp.com/pricing/">etchwp.com pricing FAQ</a>)</span></li>
 <li>"We still have plans to build our native Woocommerce integration, but there's nothing stopping you from building an e-commerce site in EtchWP today." <span class="src">(<a href="https://etchbuilder.io/pricing/">etchbuilder.io pricing FAQ</a>)</span></li>
 </ul>
-<p class="checked">Checked: 6 November 2026</p>
+<p class="checked">Checked: <span class="mono">6 November 2026</span></p>
 </li>
 
-<li class="promise">
+<li class="promise" id="a-marketplace-for-add-ons">
 <span class="status">Not found on etchwp.com</span>
 <h3>A marketplace for add-ons</h3>
 <p class="label">Pre-sale</p>
@@ -101,76 +119,76 @@ footer { margin-top: 3rem; border-top: 2px solid var(--ink); padding-top: 1rem; 
 <li>"Etch will have a marketplace where third party developers can create add-ons for Etch. These add-ons will be fully vetted with high maintenance requirements."</li>
 <li>"40% Marketplace Discount" on the Investor ($799) tier and "50% Marketplace Discount" on the Partner ($1,299) tier.</li>
 </ul>
-<p class="src"><a href="https://web.archive.org/web/20240905025607/https://etchwp.com/pricing/?group=1">Etch pre-sale pricing page, archived 5 September 2024</a>.</p>
+<p class="src"><a href="https://web.archive.org/web/20240905025607/https://etchwp.com/pricing/?group=1">Etch pre-sale pricing page, archived <span class="mono">5 September 2024</span></a>.</p>
 <p class="label">Etch's pages now</p>
 <ul>
-<li>The word "marketplace" does not appear on etchwp.com's <a href="https://etchwp.com/">home</a>, <a href="https://etchwp.com/features/">features</a> or <a href="https://etchwp.com/pricing/">pricing</a> pages (checked 6 November 2026).</li>
+<li>The word "marketplace" does not appear on etchwp.com's <a href="https://etchwp.com/">home</a>, <a href="https://etchwp.com/features/">features</a> or <a href="https://etchwp.com/pricing/">pricing</a> pages (checked <span class="mono">6 November 2026</span>).</li>
 </ul>
-<p class="checked">Checked: 6 November 2026</p>
+<p class="checked">Checked: <span class="mono">6 November 2026</span></p>
 </li>
 
-<li class="promise">
+<li class="promise" id="replacing-other-plugins">
 <span class="status">Pricing page: "Replaces 6+ premium plugins"</span>
 <h3>Replacing other plugins</h3>
 <p class="label">Pre-sale</p>
 <ul>
 <li>"Etch will eventually replace the following: Page builders (Elementor, Divi, Bricks, Breakdance, etc.) Block themes &amp; block systems (Kadence, Astra, Generate, etc.) CPT &amp; custom field plugins (ACF, Metabox, etc.) Media management plugins (HappyFiles, etc.) SEO Plugins (Yoast, SEO Framework, etc.) Performance Plugins (Perfmatters, FlyingPress, etc.)"</li>
 </ul>
-<p class="src"><a href="https://web.archive.org/web/20240905025607/https://etchwp.com/pricing/?group=1">Etch pre-sale pricing FAQ, archived 5 September 2024</a>.</p>
+<p class="src"><a href="https://web.archive.org/web/20240905025607/https://etchwp.com/pricing/?group=1">Etch pre-sale pricing FAQ, archived <span class="mono">5 September 2024</span></a>.</p>
 <p class="label">Etch's pages now</p>
 <ul>
 <li>"Replaces 6+ premium plugins", listed on the Freelancer, Agency and Agency Elite plans, without an asterisk. <span class="src">(<a href="https://etchwp.com/pricing/">etchwp.com pricing page</a>)</span></li>
 <li>"Etch will eventually replace the following:", followed by the same six categories. <span class="src">(<a href="https://etchwp.com/pricing/">etchwp.com pricing FAQ</a>)</span></li>
 </ul>
-<p class="checked">Checked: 6 November 2026</p>
+<p class="checked">Checked: <span class="mono">6 November 2026</span></p>
 </li>
 
-<li class="promise">
-<span class="status">Version 1.7.0: "Yoast SEO and Rank Math compatibility"</span>
+<li class="promise" id="seo-plugins">
+<span class="status"><span class="mono">Version 1.7.0</span>: "Yoast SEO and Rank Math compatibility"</span>
 <h3>SEO plugins</h3>
 <p class="label">Pre-sale</p>
 <ul>
 <li>"Etch will eventually replace the following: [...] SEO Plugins (Yoast, SEO Framework, etc.)"</li>
 </ul>
-<p class="src"><a href="https://web.archive.org/web/20240905025607/https://etchwp.com/pricing/?group=1">Etch pre-sale pricing FAQ, archived 5 September 2024</a>.</p>
+<p class="src"><a href="https://web.archive.org/web/20240905025607/https://etchwp.com/pricing/?group=1">Etch pre-sale pricing FAQ, archived <span class="mono">5 September 2024</span></a>.</p>
 <p class="label">Etch's pages now</p>
 <ul>
 <li>"you can create Custom Post Types (CPTs) and custom fields, manage media, manage content, manage SEO optimization, and a lot more directly from within Etch." <span class="src">(<a href="https://etchwp.com/pricing/">etchwp.com pricing FAQ</a>)</span></li>
-<li>"Etch 1.7.0: Yoast SEO and Rank Math compatibility is here!" <span class="src">(<a href="https://etchwp.com/changelog/1-7-0/">Etch changelog, version 1.7.0, 8 October 2026</a>)</span></li>
+<li>"Etch 1.7.0: Yoast SEO and Rank Math compatibility is here!" <span class="src">(<a href="https://etchwp.com/changelog/1-7-0/">Etch changelog, <span class="mono">version 1.7.0</span>, <span class="mono">8 October 2026</span></a>)</span></li>
 </ul>
-<p class="checked">Checked: 6 November 2026</p>
+<p class="checked">Checked: <span class="mono">6 November 2026</span></p>
 </li>
 
-<li class="promise">
+<li class="promise" id="custom-field-plugins">
 <span class="status">Docs: "more of a playground right now"</span>
 <h3>Custom field plugins</h3>
 <p class="label">Pre-sale</p>
 <ul>
 <li>"Etch will eventually replace the following: [...] CPT &amp; custom field plugins (ACF, Metabox, etc.)"</li>
 </ul>
-<p class="src"><a href="https://web.archive.org/web/20240905025607/https://etchwp.com/pricing/?group=1">Etch pre-sale pricing FAQ, archived 5 September 2024</a>.</p>
+<p class="src"><a href="https://web.archive.org/web/20240905025607/https://etchwp.com/pricing/?group=1">Etch pre-sale pricing FAQ, archived <span class="mono">5 September 2024</span></a>.</p>
 <p class="label">Etch's pages now</p>
 <ul>
 <li>"CPTs and custom fields", listed among core features. <span class="src">(<a href="https://etchwp.com/pricing/">etchwp.com pricing FAQ</a>)</span></li>
 <li>"This area of Etch is a functional Proof of Concept so that users can start to experience the tremendous advantages of a "unified workflow." It's a high priority area and will get progressively better very quickly, but the CPT/Custom Fields functionality should be treated as more of a playground right now than a real part of your workflow (unless your needs are very basic)." <span class="src">(<a href="https://docs.etchwp.com/known-issues">Etch docs, Known Issues</a>)</span></li>
 </ul>
-<p class="checked">Checked: 6 November 2026</p>
+<p class="checked">Checked: <span class="mono">6 November 2026</span></p>
 </li>
 
-<li class="promise">
+<li class="promise" id="version-control">
 <span class="status">Listed as not currently available</span>
 <h3>Version control</h3>
 <p class="label">Pre-sale</p>
 <ul>
 <li>"write everything possible to actual files that can be properly versioned in Git"</li>
 </ul>
-<p class="src">Etch pre-sale presentation slide, September 2024. <a href="https://weneedtotalkaboutkevin.com/etch-will-eliminate/">Slide shown here</a>.</p>
+<p class="src">Etch pre-sale presentation slide, <span class="mono">September 2024</span>. <a href="https://weneedtotalkaboutkevin.com/etch-will-eliminate/">Slide shown here</a>.</p>
 <p class="label">Etch's pages now</p>
 <ul>
 <li>"Version control*" marked as included on the Agency Elite ($299/yr) plan, and marked as not included on the Agency ($199/yr) and Freelancer ($99/yr) plans, with the footnote: "* These features are not currently available, but are planned for the near future." <span class="src">(<a href="https://etchwp.com/pricing/">etchwp.com pricing page</a>)</span></li>
 <li>"Self-contained patterns, components, and styling. Everything is portable, shareable, and eventually git-able." <span class="src">(<a href="https://etchwp.com/why/">etchwp.com Why Etch? page</a>)</span></li>
 </ul>
-<p class="checked">Checked: 6 November 2026</p>
+<p class="checked">Checked: <span class="mono">6 November 2026</span></p>
 </li>
 
 </ol>
@@ -178,15 +196,15 @@ footer { margin-top: 3rem; border-top: 2px solid var(--ink); padding-top: 1rem; 
 <h2>Dates on Etch's pages</h2>
 <ol>
 
-<li class="promise">
-<span class="status">Version 1.0.0 dated 30 January 2026</span>
+<li class="promise" id="production-stable-v1">
+<span class="status"><span class="mono">Version 1.0.0</span> dated <span class="mono">30 January 2026</span></span>
 <h3>Production-stable V1</h3>
 <p class="label">Etch's pages now</p>
 <ul>
 <li>"Etch V1 will be production stable in September 2025." <span class="src">(<a href="https://etchwp.com/pricing/">etchwp.com pricing FAQ</a>)</span></li>
-<li><a href="https://etchwp.com/changelog/1-0-0/">Version 1.0.0 changelog entry dated 30 January 2026</a></li>
+<li><a href="https://etchwp.com/changelog/1-0-0/">Version <span class="mono">1.0.0</span> changelog entry dated <span class="mono">30 January 2026</span></a></li>
 </ul>
-<p class="checked">Checked: 6 November 2026</p>
+<p class="checked">Checked: <span class="mono">6 November 2026</span></p>
 </li>
 
 </ol>
